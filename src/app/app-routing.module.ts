@@ -1,10 +1,25 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { ImagesComponent } from "./images/images.component";
+import { UploaderComponent } from "./uploader/uploader.component";
 
-const routes: Routes = [];
+const appRoutes:Routes =[
+  {
+    path:'',component:ImagesComponent,
+    children:[
+      {path:'images',component:ImagesComponent,
+  },]
+  },
+]
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+@NgModule
+
+({
+    declarations:[],
+    imports:[
+        RouterModule.forRoot(appRoutes)
+    ],
+    exports:[RouterModule]
+    
 })
-export class AppRoutingModule { }
+export class AppRoutingModule{}
